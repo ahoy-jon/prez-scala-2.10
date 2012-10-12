@@ -263,8 +263,97 @@ val listCarré= (1 to 100).map(auCarré)
 
 </section> 
 
+<section class="slide">
 
 
+<div id="background" style="
+    width: 100%; 
+    height: 100%; 
+    position: absolute; 
+    right: 0px; 
+    top: 0px; 
+    z-index: -1;">
+    <img src="img/tagCloud.png" style="width:100%;
+    height:100%;opacity:1;" alt="" />
+</div>
+
+
+</section>
+
+<section class="slide">
+
+
+
+<h2>Ecosystème</h2>
+<h3>Typesafe stack : <ul><li>Akka</li><li>Play</li></ul></h3>
+<h3>Support des IDE.</h3>
+<h3>Support du tooling Java.</h3>
+<h3>Bibliothèques ... </h3>
+
+
+</section>
+
+
+<section class="slide" style="font-size:1.5em;">
+	<h1>Scala 2.10 ??? </h1>
+</section>
+
+
+<section class="slide">
+
+	<h2>Dynamic</h2>
+
+	<h3>Permet d'avoir du typage dynamique sur certaines expressions :</h3>
+
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
+       
+import language.dynamics
+
+class MyDynamic extends Dynamic {
+  case class DynamicDuke(start:String) {
+    def apply(args: Any*):String =  {
+       start + args.toList.map(_.toString).mkString(" ")
+    }
+  }
+  
+  def applyDynamic(method:String) : DynamicDuke = DynamicDuke(selectDynamic(method))
+
+     def selectDynamic(method:String): String=  "Duke: I "+ method
+
+}
+   
+
+</div>
+
+
+
+</section>
+
+<section class="slide">
+
+<h2>DukeTyping !</h2>
+<div id="background" style="
+    width: 100%; 
+    height: 100%; 
+    position: absolute; 
+    right: 0px; 
+    top: 0px; 
+    z-index: -1;">
+    <img src="img/duck.png" style="width:100%;
+    height:100%;opacity:1;" alt="" />
+</div>
+
+</section>
+
+
+<section class="slide">
+
+<h2>Interpolation de chaîne.</h2>
+
+
+
+
+</section>
 <!-- End slides. -->
 
 
