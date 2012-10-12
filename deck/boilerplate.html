@@ -23,6 +23,11 @@
 	
 	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
 	<link rel="stylesheet" href="themes/transition/horizontal-slide.css">
+
+
+	<!-- Codemirror. -->
+	<link rel="stylesheet" href="extensions/codemirror/deck.codemirror.css">
+	<link rel="stylesheet" href="extensions/codemirror/themes/default.css">
 	
 	<!-- Required Modernizr file -->
 	<script src="modernizr.custom.js"></script>
@@ -43,7 +48,7 @@
 
 
 </head>
-<body class="deck-container">
+<body class="deck-container deck-codemirror">
 
 <!-- Begin slides. Just make elements with a class of slide. -->
 
@@ -137,20 +142,21 @@
 
 <h2>Scala syntaxe & type</h2>
 
-<pre class="scala">
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
 //Scala
 val a = 1
-</pre>
+</div>
 
-<pre class="java">
+
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
 //Java
-Integer a = new Integer(1)
-</pre>
+Integer a = new Integer(1);
+</div>
 
-<pre class="haskell">
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
 -- Haskell
 a = 1
-</pre>
+</div>
 
 </section>
 
@@ -158,23 +164,23 @@ a = 1
 
 <h2>Scala syntaxe & type</h2>
 
-<pre class="scala">
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
 //Scala
 case class Personne(nom: String, age:Int)
 val dude = Personne("duke", 25)
-</pre>
+</div>
 
-<pre class="java">
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
 //Java
 public class Personne { /* 20 lignes de code */  }
 Personne dude = new Personne("duke", new Integer(25))
-</pre>
+</div>
 
-<pre class="haskell">
---Haskell
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
+-- Haskell
 data Personne = Personne {nom:: String, age :: Int)
 dude = Personne "duke" 25
-</pre>
+</div>
 
 </section>
 <!-- End slides. -->
@@ -219,6 +225,19 @@ dude = Personne "duke" 25
 <script src="extensions/status/deck.status.js"></script>
 <script src="extensions/navigation/deck.navigation.js"></script>
 <script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Base codemiror code -->
+<script src="extensions/codemirror/codemirror.js"></script>
+
+<!-- Syntax highlighting Modes -->
+
+<!-- javascript -->
+<script src="extensions/codemirror/mode/javascript/javascript.js"></script>
+
+<!-- Plugin code -->
+<script src="extensions/codemirror/deck.codemirror.js"></script>
+
+
 
 <!-- Initialize the deck. You can put this in an external file if desired. -->
 <script>
