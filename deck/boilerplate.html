@@ -181,8 +181,9 @@
 <h2>Points clés</h2>
 
 <blockquote>
-	<p>La plus grande force de Scala c'est sa comptabilite avec Java. <br /> 
-		La plus grande faiblesse de Scala c'est sa compatibilite avec Java.</p>
+	<ul><li><strong>La plus grande force de Scala,</strong> <br/><em> c'est la comptabilite avec Java.</em> </li>
+	<li> <strong>La plus grosse faiblesse de Scala, </strong><br/><em>c'est la compatibilite avec Java.</em></li>
+</ul>
 <p><cite>un scalaiste anonyme</cite></p></blockquote>
 
 </section>
@@ -229,13 +230,13 @@ a = 1
 //Scala
 case class Personne(nom: String, age:Int)
 val dude = Personne("duke", 25)
-</div>
+</div> <br />
 
 <div id="code" name="code" class="code" mode="javascript" style="display: none;">
 //Java
 public class Personne { /* 20 lignes de code */  }
 Personne dude = new Personne("duke", new Integer(25))
-</div>
+</div> <br />
 
 <div id="code" name="code" class="code" mode="javascript" style="display: none;">
 -- Haskell
@@ -244,6 +245,216 @@ dude = Personne "duke" 25
 </div>
 
 </section>
+
+<section class="slide">
+	<h2>Scala syntaxe & type</h2>
+
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
+//Scala
+def myAddSquared(x:Int, y:Int) = x * x + y * y
+</div> <br />
+
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
+//Java
+public Int myAddSquare(Int x, Int y) {return x * x + y * y}
+
+</div> <br />
+
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
+-- Haskell
+myAddSquare x y = x * x + y * y
+</div>
+
+
+
+</section>
+
+
+<section class="slide">
+	<h2> Scala en mode OOP</h2>
+
+	<h3> Le système de type est plus complet ! </h3>
+<h3>Les case classes (comme Etudiant).</h3>
+<h3>La covariance ...</h3>
+
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
+trait Personne {
+  def nom:String
+  def salue() {println("Bonjour, je m'appelle " + nom + " !")}
+}
+
+case class Etudiant(etude:String) extends Personne
+ 
+val listE:List[Personne] = List(Etudiant("Scala"),
+                                Etudiant("Haskell")) 
+</div>
+</section>
+
+<section class="slide">
+	<h2> Scala et son pattern matching</h2>
+
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
+name match {
+    case "Lisa" ⇒ println("Found Lisa") // Constant
+    case Person("Bob") ⇒ println("Found Bob") // Constructor
+    case "Karen" | "Michelle" ⇒ println("Found Karen or Michelle") // Or (?)
+    case Seq("Dave", "John") ⇒ println("Got Dave before John") // Sequence
+    case Seq("Dave", "John", _*) ⇒ println("Got Dave before John") // Sequence
+    case ("Susan", "Steve") ⇒ println("Got Susan and Steve") // Tuple
+    case x: Int if x > 5 ⇒ println("got a value greater than 5: " + x) // Type, guard
+    case x ⇒ println("Got something that wasn't an Int: " + x) // Variable
+    case _ ⇒ println("Not found") // Wildcard
+}
+</div>
+
+
+</section>
+
+<section class="slide">
+
+	<h2>FP en Scala</h2>
+
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
+val auCarré = (i:Int) ⇒ i * i 
+
+val listCarré= (1 to 100).map(auCarré)
+// List(1,4,9,25,36,42, .... )
+</div>
+
+
+
+</section> 
+
+<section class="slide">
+
+
+<div id="background" style="
+    width: 100%; 
+    height: 100%; 
+    position: absolute; 
+    right: 0px; 
+    top: 0px; 
+    z-index: -1;">
+    <img src="img/tagCloud.png" style="width:100%;
+    height:100%;opacity:1;" alt="" />
+</div>
+
+
+</section>
+
+<section class="slide">
+
+
+
+<h2>Ecosystème</h2>
+<h3>Typesafe stack : <ul><li>Akka</li><li>Play</li></ul></h3>
+<h3>Support des IDE.</h3>
+<h3>Support du tooling Java.</h3>
+<h3>Bibliothèques ... </h3>
+
+
+</section>
+
+
+<section class="slide" style="font-size:1.5em;">
+	<h1>Scala 2.10 ??? </h1>
+</section>
+
+
+<section class="slide">
+
+	<h2>Dynamic</h2>
+
+	<h3>Permet d'avoir du typage dynamique sur certaines expressions :</h3>
+
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
+       
+import language.dynamics
+
+class MyDynamic extends Dynamic {
+  case class DynamicDuke(start:String) {
+    def apply(args: Any*):String =  {
+       start + args.toList.map(_.toString).mkString(" ")
+    }
+  }
+  
+  def applyDynamic(method:String) : DynamicDuke = DynamicDuke(selectDynamic(method))
+
+     def selectDynamic(method:String): String=  "Duke: I "+ method
+
+}
+   
+
+</div>
+
+
+
+</section>
+
+<section class="slide">
+
+<h2>DukeTyping !</h2>
+<div id="background" style="
+    width: 100%; 
+    height: 100%; 
+    position: absolute; 
+    right: 0px; 
+    top: 0px; 
+    z-index: -1;">
+    <img src="img/duck.png" style="width:100%;
+    height:100%;opacity:1;" alt="" />
+</div>
+
+</section>
+
+
+<section class="slide">
+
+<h2>Interpolation de chaîne.</h2>
+
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
+
+val duke = ??? 
+
+println(s"Bonjour ${duke}")
+
+</div>
+
+
+</section>
+
+
+<section class="slide">
+
+	<h2>Les MACROS.</h2>
+
+	<div id="background" style="
+    width: 100%; 
+    height: 100%; 
+    position: absolute; 
+    right: 0px; 
+    top: 0px; 
+    z-index: -1;">
+    <img src="img/oliphant.jpeg" style="width:100%;
+    height:100%;opacity:1;" alt="" />
+</div>
+
+
+</section>
+
+<section class="slide">
+<h2>Comment apprendre Scala ?</h2>
+
+<h3>Learn You a Haskell for Great Good !</h3>
+<h3>Structure and Interpretation of Computer Programs.</h3>
+<h3>Coursera "Functional Programming Principle in Scala".</h3>
+
+</section>
+
+<section class="slide">
+	<h1>Questions ? </h1>
+</section>
+
 <!-- End slides. -->
 
 
