@@ -68,7 +68,7 @@
 </section>
 
 <section class="slide">
-	<h2>Bref, c'est quoi SCALA ? </h2>
+	<h2>Bref, c'est quoi Scala ? </h2>
 	<h3><em>Scala</em> est un mix entre <em>Java</em> et <em>Haskell</em>.</h3>
 </section>
 
@@ -367,24 +367,22 @@ val listCarré= (1 to 100).map(auCarré)
 
 	<h3>Permet d'avoir du typage dynamique sur certaines expressions :</h3>
 
-<div id="code" name="code" class="code" mode="javascript" style="display: none;">
-       
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">       
 import language.dynamics
 
 class MyDynamic extends Dynamic {
+
   case class DynamicDuke(start:String) {
     def apply(args: Any*):String =  {
-       start + args.toList.map(_.toString).mkString(" ")
+      start + args.toList.map(_.toString).mkString(" ")
     }
   }
-  
+
   def applyDynamic(method:String) : DynamicDuke = DynamicDuke(selectDynamic(method))
 
-     def selectDynamic(method:String): String=  "Duke: I "+ method
+  def selectDynamic(method:String): String=  "Duke: I "+ method
 
 }
-   
-
 </div>
 
 
@@ -410,23 +408,30 @@ class MyDynamic extends Dynamic {
 
 <section class="slide">
 
-<h2>Interpolation de chaîne.</h2>
+<h2>Interpolation de chaînes</h2>
 
 <div id="code" name="code" class="code" mode="javascript" style="display: none;">
+val duke = "Duke"
 
-val duke = ??? 
-
-println(s"Bonjour ${duke}")
-
+println(s"Bonjour ${duke} !")
 </div>
 
 
 </section>
 
+<section class="slide">
+<h2>Reflexivité & Macro</h2>
+
+<h3>Refactoring du compilateur: découpage en couches.</h3>
+<h3>Réflexivité : manipulation de l'arbre syntaxique au <em>runtime</em>.</h3>
+<h3>Macro : manipulation de l'arbre syntaxique à la <em>compilation</em>.</h3>
+<h3></h3>
+
+</section>
 
 <section class="slide">
 
-	<h2>Les MACROS.</h2>
+	<h2>MetaProgramming !</h2>
 
 	<div id="background" style="
     width: 100%; 
@@ -445,9 +450,10 @@ println(s"Bonjour ${duke}")
 <section class="slide">
 <h2>Comment apprendre Scala ?</h2>
 
-<h3>Learn You a Haskell for Great Good !</h3>
-<h3>Structure and Interpretation of Computer Programs.</h3>
-<h3>Coursera "Functional Programming Principle in Scala".</h3>
+<h3><a href="http://www.artima.com/shop/programming_in_scala_2ed"></a>Programming in Scala.</a></h3>
+<h3><a href="http://learnyouahaskell.com/"></a>Learn You a Haskell for Great Good !</a></h3>
+<h3><a href="http://mitpress.mit.edu/sicp/full-text/book/book.html">Structure and Interpretation of Computer Programs.</a></h3>
+<h3><a href="https://www.coursera.org/course/progfun">Coursera "Functional Programming Principle in Scala".</a></h3>
 
 </section>
 
