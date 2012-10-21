@@ -322,8 +322,21 @@ import language.{reflectiveCalls, existentials}
   <h2>Deprecations and cleanup</h2>
   <ul>
     <li>Floating point and octal literal syntax deprecation</li>
-    <li>Removal of scala.dbc</li>
+    <li>Removal of package scala.dbc (database connection)</li>
   <ul>
+<br/>
+<br/>
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
+scala&#155; 1 + 2
+res0: Int = 3
+
+scala&#155; 1.+(2)
+res1: Double = 3.0
+
+scala&#155; 012
+res2: Int = 10
+</div>
+
 </section>
 
 <section class="slide">
@@ -344,6 +357,15 @@ import language.{reflectiveCalls, existentials}
     <li>Addition of ??? and NotImplemented Error</li>
     <li>Addition of IsTraversableOnce + IsTraversableLike type classes for extension methods</li>
   <ul>
+
+<br/>
+<br/>
+<div id="code" name="code" class="code" mode="javascript" style="display: none;">
+scala&#155; def toBeImpl() = ???
+toBeImpl: ()Nothing
+
+scala&#155; toBeImpl()
+scala.NotImplementedError: an implementation is missing
 </section>
 
 
