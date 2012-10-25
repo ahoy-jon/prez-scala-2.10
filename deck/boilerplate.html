@@ -182,7 +182,7 @@
 
 <blockquote>
 	<ul><li><strong>La plus grande force de Scala,</strong> <br/><em> c'est la comptabilite avec Java.</em> </li>
-	<li> <strong>La plus grosse faiblesse de Scala, </strong><br/><em>c'est la compatibilite avec Java.</em></li>
+	<li class="slide"> <strong>La plus grosse faiblesse de Scala, </strong><br/><em>c'est la compatibilite avec Java.</em></li>
 </ul>
 <p><cite>un scalaiste anonyme</cite></p></blockquote>
 
@@ -369,19 +369,15 @@ val listCarré= (1 to 100).map(auCarré)
 <div id="code" name="code" class="code" mode="javascript" style="display: none;">       
 import language.dynamics
 
-class MyDynamic extends Dynamic {
-
-  case class DynamicDuke(start:String) {
-    def apply(args: Any*):String =  {
-      start + args.toList.map(_.toString).mkString(" ")
-    }
-  }
-
-  def applyDynamic(method:String) : DynamicDuke = DynamicDuke(selectDynamic(method))
+class DynamicDuke extends Dynamic {
 
   def selectDynamic(method:String): String=  "Duke: I "+ method
 
 }
+
+val duke = new MyDynamic
+
+println(duke.quack + " !")
 </div>
 
 
@@ -449,10 +445,17 @@ println(s"Bonjour ${duke} !")
 <section class="slide">
 <h2>Comment apprendre Scala ?</h2>
 
-<h3><a href="http://www.artima.com/shop/programming_in_scala_2ed"></a>Programming in Scala.</a></h3>
-<h3><a href="http://learnyouahaskell.com/"></a>Learn You a Haskell for Great Good !</a></h3>
+<h3><a href="http://learnyouahaskell.com/">Learn You a Haskell for Great Good !</a></h3>
 <h3><a href="http://mitpress.mit.edu/sicp/full-text/book/book.html">Structure and Interpretation of Computer Programs.</a></h3>
 <h3><a href="https://www.coursera.org/course/progfun">Coursera "Functional Programming Principle in Scala".</a></h3>
+<br />
+
+<br />
+
+<h3><a href="http://www.artima.com/shop/programming_in_scala_2ed">Programming in Scala.</a>
+</h3>
+<h3><a href="https://groups.google.com/forum/?fromgroups#!forum/paris-scala-user-group">Venir au Paris Scala User Group !!</a></h3>
+
 
 </section>
 
